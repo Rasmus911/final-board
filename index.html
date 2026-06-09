@@ -496,7 +496,7 @@ body.pptx-mode .spacer-bottom { display:none; }
 
 /* Navigation dots */
 .pptx-dots {
-  position:fixed; right:1.6rem; top:50%; transform:translateY(-50%); z-index:120;
+  position:fixed; right:3.2rem; top:50%; transform:translateY(-50%); z-index:120;
   display:none; flex-direction:column; gap:0.7rem; align-items:center;
 }
 body.pptx-mode .pptx-dots { display:flex; }
@@ -541,13 +541,6 @@ body.pptx-mode .pptx-arrow { display:flex; }
 .pptx-arrow.prev { left:1.2rem; top:50%; transform:translateY(-50%); }
 .pptx-arrow.next { right:4rem; top:50%; transform:translateY(-50%); }
 
-/* Hint text */
-.pptx-hint {
-  position:fixed; bottom:4.5rem; left:50%; transform:translateX(-50%); z-index:119;
-  font-size:0.65rem; color:var(--text2); opacity:0; pointer-events:none;
-  transition:opacity 0.6s; text-transform:uppercase; letter-spacing:0.12em;
-}
-body.pptx-mode .pptx-hint { opacity:0.5; }
 
 /* Bottom next-slide button — normal flow at end of content */
 .pptx-bottom-next {
@@ -591,7 +584,7 @@ body.pptx-mode .pptx-counter { display:block; }
 
 @media (max-width:768px) {
   .pptx-section-inner { padding:3rem 1rem; }
-  .pptx-dots { right:0.6rem; gap:0.5rem; }
+  .pptx-dots { right:1.6rem; gap:0.5rem; }
   .pptx-dot { width:8px; height:8px; }
   .pptx-arrow.next { right:3.2rem; }
   .pptx-toggle { bottom:1rem; right:0.8rem; font-size:0.65rem; padding:0.4rem 0.8rem; }
@@ -615,7 +608,6 @@ body.pptx-mode .pptx-counter { display:block; }
 <div class="pptx-counter" id="pptxCounter"><span class="cur">1</span><span class="sep">/</span><span>7</span></div>
 <button class="pptx-arrow prev" id="pptxPrev" onclick="prevSlide()" disabled>◂</button>
 <button class="pptx-arrow next" id="pptxNext" onclick="nextSlide()">▸</button>
-<div class="pptx-hint" id="pptxHint">← → arrow keys &nbsp;·&nbsp; click ▼ button at bottom</div>
 <button class="pptx-toggle" id="pptxToggle" onclick="togglePPTX()">🎬 Slides</button>
 
 <!-- ═══════════ NAV ═══════════ -->
@@ -1495,7 +1487,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
   var dots    = document.getElementById('pptxDots');
   var counter = document.getElementById('pptxCounter');
   var prog    = document.getElementById('pptxProgress');
-  var hint    = document.getElementById('pptxHint');
   var prevBtn = document.getElementById('pptxPrev');
   var nextBtn = document.getElementById('pptxNext');
   var toggle  = document.getElementById('pptxToggle');
@@ -1542,9 +1533,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
     updateUI();
     // Scroll to top
     slides[cur].scrollTop = 0;
-    // Flash hint
-    hint.classList.add('fading');
-    setTimeout(function(){ hint.classList.remove('fading'); }, 1600);
     setTimeout(function(){ transitioning = false; }, 800);
   }
 
