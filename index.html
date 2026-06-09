@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Board — AI-Enhanced Architecture &amp; Urban Design</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #0d0d0d;
+  --surface: #1a1a1a;
+  --surface2: #242424;
+  --text: #e8e8e8;
+  --text2: #aaa;
+  --accent: #ff4444;
+  --blue: #448aff;
+  --gold: #ffab00;
+  --green: #00c853;
+  --purple: #7c4dff;
+  --pink: #ff4081;
+  --teal: #1de9b6;
+  --orange: #ff6d00;
+  --radius: 6px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(13,13,13,0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 0 2rem; height: 52px;
+  display: flex; align-items: center; gap: 2rem;
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;
+}
+nav a { color: var(--text2); text-decoration: none; transition: color 0.2s; }
+nav a:hover { color: #fff; }
+nav .brand { color: #fff; font-weight: 700; margin-right: auto; letter-spacing: 0.12em; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center; padding: 6rem 2rem 4rem;
+  background: radial-gradient(ellipse at 50% 40%, rgba(255,68,68,0.08) 0%, transparent 70%);
+}
+.hero h1 { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+.hero h1 span { color: var(--accent); }
+.hero .sub { font-size: 1.05rem; color: var(--text2); margin-top: 1.2rem; max-width: 540px; }
+.hero .meta { margin-top: 2rem; display: flex; gap: 2rem; font-size: 0.8rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-title {
+  font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;
+  letter-spacing: -0.01em; border-left: 4px solid var(--accent); padding-left: 1.2rem;
+}
+.section-sub { color: var(--text2); margin-bottom: 3rem; font-size: 1rem; }
+
+/* ── CARDS ── */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.card {
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius); padding: 1.8rem; transition: transform 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.12); }
+.card h3 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+.card p { color: var(--text2); font-size: 0.9rem; }
+.card .tag { display:inline-block; font-size:0.7rem; padding:2px 10px; border-radius:20px; margin-bottom:0.8rem; text-transform:uppercase; letter-spacing:0.06em; }
+.tag-red { background:rgba(255,68,68,0.15); color:var(--accent); }
+.tag-blue { background:rgba(68,138,255,0.15); color:var(--blue); }
+.tag-green { background:rgba(0,200,83,0.15); color:var(--green); }
+.tag-purple { background:rgba(124,77,255,0.15); color:var(--purple); }
+.tag-gold { background:rgba(255,171,0,0.15); color:var(--gold); }
+
+/* ── DIAGRAM ── */
+.mermaid-wrap {
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius); padding: 2rem; margin: 2rem 0; overflow-x: auto;
+}
+.mermaid { display: flex; justify-content: center; }
+
+/* ── TABLE ── */
+table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:0.85rem; }
+thead { background: var(--surface2); }
+th { padding:0.8rem 1rem; text-align:center; text-transform:uppercase; letter-spacing:0.06em; font-size:0.75rem; color:var(--text2); }
+td { padding:0.7rem 0.5rem; border-bottom:1px solid rgba(255,255,255,0.04); text-align:center; vertical-align:top; }
+tr:hover td { background:rgba(255,255,255,0.02); }
+td img { max-width:180px; border-radius:4px; cursor:pointer; transition:transform 0.2s; }
+td img:hover { transform: scale(1.05); }
+td:first-child { text-align:left; font-weight:600; white-space:nowrap; padding:0.7rem 1rem; }
+
+/* ── IMAGE GALLERY ── */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.gallery img { width:100%; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.06); transition:transform 0.3s; cursor:pointer; }
+.gallery img:hover { transform: scale(1.02); }
+.gallery figcaption { font-size:0.8rem; color:var(--text2); margin-top:0.4rem; text-align:center; }
+
+/* ── SITE DOCUMENTATION — equal-width 2-column ── */
+.site-doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin: 1.5rem 0;
+}
+.site-doc-item {
+  display: flex; flex-direction: column;
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05); overflow: hidden;
+}
+.site-doc-item img {
+  width: 100%; height: 420px; object-fit: contain;
+  background: #0a0a0a; cursor: pointer; transition: transform 0.3s;
+}
+.site-doc-item img:hover { transform: scale(1.03); }
+.site-doc-item figcaption {
+  font-size: 0.8rem; color: var(--text2); padding: 0.7rem 1rem;
+  text-align: center; background: var(--surface);
+}
+@media (max-width:768px) {
+  .site-doc-grid { grid-template-columns: 1fr; }
+  .site-doc-item img { height: auto; max-height: 350px; }
+}
+
+/* ── SURVEY LAYOUT: 1,2 left | 4,5 middle | 3 tall right ── */
+.survey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.survey-grid .survey-item {
+  display: flex; flex-direction: column;
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05); overflow: hidden;
+}
+.survey-grid .survey-item img {
+  width: 100%; height: 100%; object-fit: contain;
+  cursor: pointer; transition: transform 0.3s;
+}
+.survey-grid .survey-item img:hover { transform: scale(1.03); }
+.survey-grid .survey-item figcaption {
+  font-size: 0.72rem; color: var(--text2); padding: 0.5rem 0.8rem;
+  text-align: center; background: var(--surface);
+}
+/* Placement */
+.survey-i1 { grid-row: 1; grid-column: 1; }
+.survey-i2 { grid-row: 2; grid-column: 1; }
+.survey-i4 { grid-row: 1; grid-column: 2; }
+.survey-i5 { grid-row: 2; grid-column: 2; }
+.survey-i3 { grid-row: 1 / 3; grid-column: 3; }
+
+@media (max-width:768px) {
+  .survey-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .survey-i1 { grid-row: 1; grid-column: 1; }
+  .survey-i2 { grid-row: 2; grid-column: 1; }
+  .survey-i4 { grid-row: 1; grid-column: 2; }
+  .survey-i5 { grid-row: 2; grid-column: 2; }
+  .survey-i3 { grid-row: 3; grid-column: 1 / 3; }
+}
+
+/* ── COMPARISON ── */
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:2rem 0; }
+.compare > div { background:var(--surface); border-radius:var(--radius); padding:1.5rem; border:1px solid rgba(255,255,255,0.05); }
+.compare h4 { margin-bottom:0.8rem; font-size:0.95rem; }
+
+/* ── HIGHLIGHT BOX ── */
+.callout {
+  border-left: 3px solid var(--accent); background: rgba(255,68,68,0.06);
+  padding: 1.2rem 1.5rem; margin: 2rem 0; border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.92rem;
+}
+.callout.blue { border-color: var(--blue); background: rgba(68,138,255,0.06); }
+.callout.green { border-color: var(--green); background: rgba(0,200,83,0.06); }
+.callout.gold { border-color: var(--gold); background: rgba(255,171,0,0.06); }
+
+/* ── TIMELINE ── */
+.timeline { position:relative; padding-left:2rem; margin:2rem 0; }
+.timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:rgba(255,255,255,0.1); }
+.timeline-item { position:relative; margin-bottom:1.8rem; }
+.timeline-item::before { content:''; position:absolute; left:-2.35rem; top:0.35rem; width:10px; height:10px; border-radius:50%; background:var(--accent); }
+.timeline-item .time { font-size:0.75rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; }
+.timeline-item h4 { font-size:0.95rem; margin:0.2rem 0; }
+.timeline-item p { color:var(--text2); font-size:0.85rem; }
+
+/* ── ERROR ICON CARDS ── */
+.error-showcase {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;
+}
+.error-card {
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius); padding: 2.5rem 1.8rem; text-align: center;
+  position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s;
+}
+.error-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.15); }
+.error-card .err-icon {
+  font-size: 4rem; line-height: 1; margin-bottom: 1.2rem;
+  display: block; filter: grayscale(0);
+}
+.error-card .err-num {
+  position: absolute; top: 1rem; right: 1.5rem;
+  font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.03);
+  line-height: 1;
+}
+.error-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.error-card .err-def {
+  font-size: 0.85rem; color: var(--text2); margin-bottom: 1rem;
+  padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.error-card .err-case {
+  font-size: 0.8rem; color: var(--text2); text-align: left; line-height: 1.5;
+}
+.error-card .err-case strong { color: var(--text); }
+.error-card .err-tag {
+  display: inline-block; font-size: 0.65rem; padding: 3px 12px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;
+}
+.err-tag-critical { background: rgba(255,68,68,0.2); color: var(--accent); }
+.err-tag-severe  { background: rgba(255,107,0,0.2); color: var(--orange); }
+.err-tag-danger  { background: rgba(255,64,129,0.2); color: var(--pink); }
+
+/* ── CRITICAL DECISION MAP — Full vertical flow with personal thinking ── */
+.flow-root {
+  display: flex; flex-direction: column; gap: 0;
+  max-width: 1100px; margin: 0 auto;
+}
+.flow-row {
+  display: grid; grid-template-columns: 60px 1fr;
+  gap: 0.8rem; align-items: start;
+  padding: 1.2rem 0; position: relative;
+}
+.flow-row::after {
+  content: ''; position: absolute; bottom: 0; left: 30px; right: 0;
+  height: 1px; background: rgba(255,255,255,0.04);
+}
+.flow-label {
+  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--text2); text-align: right; padding-top: 0.5rem; font-weight: 700;
+}
+.flow-arrow-main {
+  grid-column: 1 / -1; text-align: center; font-size: 1.5rem;
+  color: var(--accent); padding: 0.3rem 0; font-weight: 900;
+  opacity: 0.5;
+}
+.flow-columns { display: grid; gap: 1rem; }
+.flow-col-1 { grid-template-columns: 1fr; }
+.flow-col-2 { grid-template-columns: 1fr 1fr; }
+.flow-col-3 { grid-template-columns: 1fr 1fr 1fr; }
+.flow-col-equal .flow-col { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.flow-phase-tag {
+  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text2); margin-bottom: 0.3rem; opacity: 0.7;
+  border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.4rem;
+}
+.flow-inline-arrow {
+  text-align: center; color: var(--text2); font-size: 0.9rem;
+  padding: 0.15rem 0; opacity: 0.4;
+}
+
+.flow-block {
+  border-radius: 4px; padding: 0.7rem 1rem;
+  border-left: 3px solid transparent;
+  background: var(--surface2); line-height: 1.35;
+}
+.flow-block-title {
+  font-size: 0.78rem; font-weight: 700; margin-bottom: 0.2rem;
+}
+.flow-block-desc {
+  font-size: 0.72rem; color: var(--text2); line-height: 1.4;
+}
+
+.flow-block-question { border-left-color: #fff; background: rgba(255,255,255,0.04); }
+.flow-block-action   { border-left-color: var(--blue); }
+.flow-block-decision { border-left-color: var(--gold); background: rgba(255,171,0,0.06); }
+.flow-block-critical { border-left-color: var(--accent); background: rgba(255,68,68,0.06); }
+.flow-block-output   { border-left-color: var(--green); background: rgba(0,200,83,0.06); }
+.flow-block-transition {
+  border-left-color: var(--purple); background: rgba(124,77,255,0.06);
+  border: 1px dashed rgba(124,77,255,0.3);
+}
+.flow-block-fork   { border-left-color: var(--orange); background: rgba(255,109,0,0.06); }
+.flow-block-filter { border-left-color: var(--gold); background: rgba(255,171,0,0.06); }
+.flow-block-commit { border-left-color: var(--green); background: rgba(0,200,83,0.06); }
+.flow-block-audit  { border-left-color: var(--purple); background: rgba(124,77,255,0.06); }
+.flow-block-k50    { border-left-color: var(--pink); background: rgba(255,64,129,0.06); }
+.flow-block-final {
+  border: 2px solid rgba(255,255,255,0.2); background: var(--surface);
+  text-align: center; padding: 1.5rem 2rem;
+}
+
+/* Personal reflection bubble */
+.flow-think {
+  font-size: 0.72rem; color: rgba(255,255,255,0.55); font-style: italic;
+  padding: 0.6rem 1rem; margin-top: 0.4rem;
+  background: rgba(255,255,255,0.02); border-radius: 4px;
+  border-left: 2px solid rgba(255,255,255,0.08); line-height: 1.45;
+}
+.flow-think::before {
+  content: 'MY REFLECTION — ';
+  font-style: normal; font-weight: 700; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  opacity: 0.7;
+}
+
+.flow-row-question .flow-block { min-width: auto; }
+.flow-row-transition { grid-template-columns: 1fr; }
+.flow-row-transition .flow-label { display: none; }
+.flow-row-final { grid-template-columns: 1fr; }
+.flow-row-final .flow-label { display: none; }
+
+@media (max-width:768px) {
+  .flow-row { grid-template-columns: 36px 1fr; gap: 0.5rem; }
+  .flow-col-2, .flow-col-3 { grid-template-columns: 1fr; }
+}
+
+/* ── ARTISTIC FLOATING FOOTER ── */
+.art-footer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+  background: linear-gradient(to top, rgba(13,13,13,0.97) 60%, rgba(13,13,13,0));
+  padding: 2.5rem 2rem 1.5rem;
+  display: flex; justify-content: center; align-items: center;
+  gap: 2.5rem; flex-wrap: wrap;
+  pointer-events: none;
+  animation: footerFadeIn 2s ease-out 1s both;
+}
+@keyframes footerFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.art-footer .ft-line {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text2); white-space: nowrap; position: relative;
+}
+.art-footer .ft-line:not(:last-child)::after {
+  content: ''; position: absolute; right: -1.4rem; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 12px; background: rgba(255,255,255,0.12);
+}
+.art-footer .ft-accent {
+  color: var(--accent); font-weight: 700; letter-spacing: 0.15em;
+}
+.art-footer .ft-dot {
+  color: var(--accent); font-weight: 900; margin: 0 0.2rem;
+}
+/* Footer fade on hover */
+.art-footer:hover { opacity: 0.35; transition: opacity 0.6s; }
+/* Push last section content up so footer doesn't cover it */
+.spacer-bottom { height: 100px; }
+
+@media (max-width:768px) {
+  nav { padding:0 1rem; gap:1rem; font-size:0.7rem; }
+  .hero h1 { font-size:2rem; }
+  .compare { grid-template-columns:1fr; }
+  .error-showcase { grid-template-columns:1fr; }
+  section { padding:3rem 1rem; }
+}
+
+/* ── LIGHTBOX ── */
+.lightbox { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.94); justify-content:center; align-items:center; cursor:pointer; }
+.lightbox.active { display:flex; }
+.lightbox img { max-width:92vw; max-height:92vh; border-radius:var(--radius); }
+
+/* ── GENERATOR BADGE ── */
+.gen-badge {
+  display: inline-block; font-size: 0.65rem; padding: 2px 10px; border-radius: 20px;
+  background: rgba(30,200,150,0.12); color: var(--teal);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <span class="brand">FINAL BOARD</span>
+  <a href="#hero">Top</a>
+  <a href="#ex1">Exercise 1</a>
+  <a href="#errors">Error Taxonomy</a>
+  <a href="#ex2">Exercise 2</a>
+  <a href="#ffc">FFC</a>
+  <a href="#diagrams">Diagrams</a>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <h1>From AI Pipeline<br/>to <span>Design Argument</span></h1>
+  <p class="sub">
+    Multi-LLM adversarial analysis → controlled generation → architectural synthesis.
+  </p>
+  <div class="meta">
+    <span>Xi'an · Beilin / Shuyuanmen</span>
+    <span>June 2026</span>
+    <span>AI-Enhanced Architecture &amp; Urban Design</span>
+  </div>
+</section>
+
+<!-- ═══════════ CORE QUESTION ═══════════ -->
+<section>
+  <h2 class="section-title">Core Design Question</h2>
+  <p class="section-sub">What spatial conflict do we respond to?</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="tag tag-red">Site</span>
+      <h3>Beilin / Shuyuanmen, Xi'an</h3>
+      <p>The historic city wall area where monumental heritage meets dense everyday urban life. Satellites show large-scale tensions — street surveys reveal the conflict is concentrated along the <strong>street edge</strong>.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-blue">Conflict</span>
+      <h3>Heritage Boundary vs. Everyday Street Use</h3>
+      <p>Historic walls, entrances, tree shade, vendors, parked vehicles, tourists, residents, and staying spaces — all compete for limited room along a narrow edge.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-green">Approach</span>
+      <h3>Low-Intervention Spatial Strategies</h3>
+      <p>Three porosity levels (Low · Medium · High) applied to specific spatial conditions. Reversible. Small-scale. Evidence-grounded. Management-aware.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EXERCISE 1 ═══════════ -->
+<section id="ex1">
+  <h2 class="section-title">Exercise 1 — Reading the Invisible City</h2>
+  <p class="section-sub">Multi-LLM Adversarial Analysis · May 22, 2026</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time">10:00 AM — Phase 1</div>
+      <h4>Personal Naked-Eye Reading</h4>
+      <p>No AI. No external sources. Pure human perception of morphology, spatial hierarchy, and tensions. The city wall and moat as defining spatial forms. Roads classified by importance. Residential growth without unified planning.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time">10:25 AM — Phase 1</div>
+      <h4>4-Model AI Baseline Description</h4>
+      <p>Same prompt to Gemini 3.5 Flash, ChatGPT 5.5, Kimi K2.6, and Doubao. Each independently described the satellite image. Cross-model comparison revealed convergence on 3-texture morphology and scale clashes — but critical divergence on geography.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time">10:50 AM — Phase 2</div>
+      <h4>Four-Dimension Deep Analysis + Adversarial Stress-Testing</h4>
+      <p>Fire Safety · Structural Aging · Heritage Conflict · Environmental Risk. Every claim linked to visual evidence, then classified as Verified / Plausible / Hallucinated. Adversarial testing via deliberate misidentification (Technique A) and cross-model confrontation (Technique B).</p>
+    </div>
+    <div class="timeline-item">
+      <div class="time">14:00 — Phase 3</div>
+      <h4>Error Taxonomy &amp; Critical Reflection</h4>
+      <p>6 error types identified through systematic cross-model comparison. Chinese models: cultural depth but over-interpret. Western models: visual rigor but impose foreign frameworks. AI's greatest value is not providing answers — it is forcing deeper thinking through its errors.</p>
+    </div>
+  </div>
+
+  <!-- Site Images — equal-width 2-column -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Site Documentation</h3>
+  <div class="site-doc-grid">
+    <figure class="site-doc-item">
+      <img src="img/ex1-site-satellite.png" alt="Site Satellite Image" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>Satellite Image — Xi'an City Wall Area, Beilin / Shuyuanmen</figcaption>
+    </figure>
+    <figure class="site-doc-item">
+      <img src="img/ex1-individual-site-analysis.png" alt="Baidu Maps Verification" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>Baidu Maps — Individual Site Analysis &amp; Verification</figcaption>
+    </figure>
+  </div>
+
+  <!-- Resistance Scores -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Model Resistance Scores — Adversarial Stress-Testing Results</h3>
+  <div class="mermaid-wrap">
+    <div class="mermaid">
+flowchart LR
+    G["Gemini 3.5 Flash
+Score: 3/5
+Resists on reasoned judgment
+Over-compliant on context"]
+    C["ChatGPT 5.5
+Score: 4/5
+Independent analysis
+Self-corrects when challenged"]
+    K["Kimi K2.6
+Score: 1/5
+Fatal geo misidentification
+Xi an became Beijing"]
+    D["Doubao
+Score: 1/5
+Echo chamber effect
+Zero independent stance"]
+    G --> C --> K --> D
+    classDef good fill:#00c853,stroke:#00a844,color:#fff
+    classDef warn fill:#ffab00,stroke:#ff8f00,color:#333
+    classDef bad fill:#ff4444,stroke:#d50000,color:#fff
+    class C good
+    class G warn
+    class K,D bad
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Key Insight from Exercise 1:</strong> AI is a magnifying glass — it reveals details invisible to the human eye but is unreliable on geographic location and numerical data. Its greatest value is not providing answers, but <em>forcing deeper thinking through its errors</em>. Chinese models bring cultural depth but over-interpret; Western models bring visual rigor but impose foreign frameworks. Critical thinking is indispensable for geographic positioning, numerical calculation, and heritage assessment.
+  </div>
+</section>
+
+<!-- ═══════════ ERROR TAXONOMY — ARTISTIC ICON DISPLAY ═══════════ -->
+<section id="errors">
+  <h2 class="section-title">Error Taxonomy — The 3 Most Critical AI Failure Modes</h2>
+  <p class="section-sub">Selected from Exercise 1's 6-type taxonomy. </p>
+
+  <div class="error-showcase">
+    <!-- ERROR 1: FABRICATION -->
+    <div class="error-card">
+      <div class="err-num">01</div>
+      <span class="err-tag err-tag-critical">Critical</span>
+      <h3>Fabrication</h3>
+      <div class="err-def">Inventing features, names, or facts<br/>not visible or verifiable in the source.</div>
+      <div class="err-case">
+        <strong>Kimi (Phase 1):</strong> Analyzed the Xi'an satellite image and described the <em>Forbidden City</em>, <em>Tongzi River</em>, <em>Nanluoguxiang</em>, <em>Shichahai</em>, <em>Drum Tower</em>, and <em>Bell Tower</em> — all Beijing landmarks. <strong>None of these exist at the site.</strong><br/><br/>
+        <strong>Gemini (Phase 2, adversarial):</strong> When told the site was in Nanjing, invented <em>Dongshuiguan</em>, <em>Tongji Gate</em>, and <em>Outer Qinhuai River</em> — locations with no visual basis.<br/><br/>
+        <strong>Doubao (Phase 1):</strong> Invented an <em>"elevated pedestrian promenade"</em> and <em>directional zoning</em> not present in the imagery.
+      </div>
+    </div>
+
+    <!-- ERROR 2: MISATTRIBUTION -->
+    <div class="error-card">
+      <div class="err-num">02</div>
+      <span class="err-tag err-tag-severe">Severe</span>
+      <h3>Misattribution</h3>
+      <div class="err-def">Correct identification of form,<br/>wrong location, period, or cultural context.</div>
+      <div class="err-case">
+        <strong>Kimi (Phase 1):</strong> Correctly identified a <em>monumental walled compound</em> and <em>water body/moat</em> — but misattributed them as Beijing's Forbidden City and Tongzi River. The actual site: <strong>Stele Forest Museum (Beilin)</strong> and <strong>Xi'an City Wall moat</strong>.<br/><br/>
+        <strong>Kimi (Phase 2):</strong> Correctly identified Xi'an — but misattributed the district as <em>Muslim Quarter / Bell Tower</em> area. The actual site: <strong>Wenchang Gate / Shuyuanmen</strong>.<br/><br/>
+        <strong>Why this matters:</strong> Correct form recognition creates <em>false confidence</em>. The analysis reads plausibly — but every design conclusion drawn from the wrong cultural context is invalid.
+      </div>
+    </div>
+
+    <!-- ERROR 3: EXCESSIVE COMPLIANCE -->
+    <div class="error-card">
+      <div class="err-num">03</div>
+      <span class="err-tag err-tag-danger">Dangerous</span>
+      <h3>Excessive Compliance</h3>
+      <div class="err-def">The Echo Chamber Effect — abandoning<br/>prior analysis to unconditionally align<br/>with the user's premise.</div>
+      <div class="err-case">
+        <strong>Doubao (Phase 2, adversarial):</strong> When the user claimed the site was in Nanjing, denied the existence of informal construction, or asserted there was no public/private boundary ambiguity — Doubao <em>immediately revised its entire analytical framework</em> to match every premise. Resistance Score: <strong>1/5</strong>.<br/><br/>
+        <strong>Gemini (Phase 2):</strong> Initially complied with the Nanjing misidentification before partial recovery.<br/><br/>
+        <strong>Kimi (Phase 2):</strong> Apologized and rewrote its cultural context analysis to fit the user's false Beijing narrative.<br/><br/>
+        <strong>Why this is the most dangerous:</strong> Unlike Fabrication (visible error) or Misattribution (verifiable error), compliance produces <em>plausible-sounding agreement</em>. The designer is never alerted. The error is invisible.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Personal Insight:</strong> Fabrication poisons the evidence base. Misattribution invalidates cultural reasoning. Excessive Compliance removes the only safety mechanism — <em>the model's ability to say no</em>. Together, they form a cascade: invent → misplace → agree with whatever the designer wants. A design built on fabricated, misattributed, and compliantly confirmed data is not a design — it is a fiction.
+  </div>
+</section>
+
+<!-- ═══════════ EXERCISE 2 ═══════════ -->
+<section id="ex2">
+  <h2 class="section-title">Exercise 2 — From Reading to Proposing</h2>
+  <p class="section-sub">Multi-LLM VLM + Reasoning + Image Generation · May 27, 2026</p>
+
+  <div class="callout blue">
+    <strong>Learning from Ex1:</strong> Kimi and ERNIE Bot excluded. Ex1's error taxonomy directly informed tool selection. Gemini 3.5 Flash selected for all image generation tasks. Only models with proven reliability were kept.
+  </div>
+
+  <!-- Survey Images — Custom layout: [1|4|3 tall] [2|5|3 tall] -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Street-Level Survey — 5 Images for VLM Ground Reading</h3>
+  <div class="survey-grid">
+    <figure class="survey-item survey-i1">
+      <img src="img/ex2-road-heritage.png" alt="Road & Heritage Conflict" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>1. Road &amp; Heritage Conflict</figcaption>
+    </figure>
+    <figure class="survey-item survey-i2">
+      <img src="img/ex2-commercial-edge.png" alt="Commercial Edge Activity" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>2. Commercial Edge Activity</figcaption>
+    </figure>
+    <figure class="survey-item survey-i3">
+      <img src="img/ex2-leisure-staying.png" alt="Leisure & Staying Spaces" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>3. Leisure &amp; Staying Spaces — Shade, elderly resting, wall, entrance, tourist vehicles coexist in one frame</figcaption>
+    </figure>
+    <figure class="survey-item survey-i4">
+      <img src="img/ex2-pointcloud-height.png" alt="Point Cloud Height Variation" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>4. Point Cloud — Height Variation</figcaption>
+    </figure>
+    <figure class="survey-item survey-i5">
+      <img src="img/ex2-3d-pointcloud.png" alt="3D Point Cloud Context" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>5. 3D Point Cloud — Spatial Context</figcaption>
+    </figure>
+  </div>
+
+  <!-- Additional survey context -->
+  <div class="gallery" style="margin-top:1rem;">
+    <figure>
+      <img src="img/ex2-update-area.png" alt="Update Area Context" loading="lazy" onclick="openLightbox(this.src)">
+      <figcaption>Update Area — Broader Site Context &amp; Intervention Zone</figcaption>
+    </figure>
+  </div>
+
+  <!-- VLM Comparison -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">VLM Ground Reading — Two Models, Two Framings</h3>
+  <div class="compare">
+    <div>
+      <h4>Qwen3-VL-Flash (Alibaba)</h4>
+      <p style="color:var(--text2);font-size:0.9rem;">"The primary tension is the friction between the <strong>monumental scale</strong> of the historic city wall and the <strong>intimate, everyday human activities</strong> — pedestrian movement, social gathering, and commercial life — that occur in its immediate shadow, often competing for the same limited ground space."</p>
+      <p style="margin-top:0.8rem;font-size:0.8rem;color:var(--text2);">Framing: <strong>SCALE contrast</strong> — monumental vs. intimate</p>
+    </div>
+    <div>
+      <h4>Gemini 3.5 Flash (Google)</h4>
+      <p style="color:var(--text2);font-size:0.9rem;">"The primary spatial tension lies between the site's role as a <strong>high-density transit and tourism node</strong> — crowded with parked micro-mobility vehicles, street vendors, and moving pedestrians — and its function as a <strong>historic, shaded public space</strong> meant for resting and cultural appreciation."</p>
+      <p style="margin-top:0.8rem;font-size:0.8rem;color:var(--text2);">Framing: <strong>FUNCTION conflict</strong> — transit vs. rest</p>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <strong>Synthesis Decision:</strong> Both framings describe the SAME conflict from DIFFERENT angles. Qwen captures the PHYSICAL dimension (scale); Gemini captures the PROGRAMMATIC dimension (function). Combined, they form a richer problem definition: <em>the street edge is a scalar-functional conflict zone where monumental heritage and intimate everyday life compete for the same physical space.</em>
+  </div>
+
+  <!-- AI Generated Images Table -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">3-Round Controlled Image Generation — Low · Medium · High Porosity</h3>
+  <p style="color:var(--text2);font-size:0.85rem;margin-bottom:0.3rem;">
+    <span class="gen-badge">Gemini 3.5 Flash</span> &nbsp; Seed = 1998 (fixed) &nbsp;·&nbsp; Reference Weight = 1 
+  <p style="color:var(--text2);font-size:0.8rem;margin-bottom:1.5rem;">
+    Temperature: Round 1 = 0.24 → Round 2 = 0.36 → Round 3 = 0.80 &nbsp;|&nbsp; Fixed seed ensures COMPARABILITY — differences come from prompt refinement, not randomness.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:12%;">Porosity</th>
+        <th style="width:29%;">Round 1 — Temp 0.24<br/><span style="font-weight:400;text-transform:none;font-size:0.65rem;">Basic Strategy Generation</span></th>
+        <th style="width:29%;">Round 2 — Temp 0.36<br/><span style="font-weight:400;text-transform:none;font-size:0.65rem;">Heritage Fidelity Enforced</span></th>
+        <th style="width:30%;">Round 3 — Temp 0.80<br/><span style="font-weight:400;text-transform:none;font-size:0.65rem;">Inclusive of Everyday Users</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>LOW</strong><br/>
+          <span style="font-size:0.75rem;color:var(--text2);">Stone Bollards<br/>at Gateways</span>
+        </td>
+        <td>
+          <img src="img/ex2-low-r1.png" alt="Low Porosity Round 1" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Too generic — lost<br/>Beilin/Shuyuanmen specificity</span>
+        </td>
+        <td>
+          <img src="img/ex2-low-r2.png" alt="Low Porosity Round 2" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Edge improved but still<br/>risked displacing everyday users</span>
+        </td>
+        <td>
+          <img src="img/ex2-low-r3.png" alt="Low Porosity Round 3" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Lived-in but organized —<br/>elderly, vendors, cyclists included</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>MEDIUM</strong><br/>
+          <span style="font-size:0.75rem;color:var(--text2);">Intermittent<br/>Stone Ledges<br/>at Shaded Zones</span>
+        </td>
+        <td>
+          <img src="img/ex2-med-r1.png" alt="Medium Porosity Round 1" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Too generic — lost<br/>Beilin/Shuyuanmen specificity</span>
+        </td>
+        <td>
+          <img src="img/ex2-med-r2.png" alt="Medium Porosity Round 2" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Edge improved but still<br/>risked displacing everyday users</span>
+        </td>
+        <td>
+          <img src="img/ex2-med-r3.png" alt="Medium Porosity Round 3" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Lived-in but organized —<br/>elderly, vendors, cyclists included</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>HIGH</strong><br/>
+          <span style="font-size:0.75rem;color:var(--text2);">Steel Posts<br/>+ Tensioned Rope<br/>+ Tethered Stools<br/>at Wall Stretches</span>
+        </td>
+        <td>
+          <img src="img/ex2-high-r1.png" alt="High Porosity Round 1" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Too generic — lost<br/>Beilin/Shuyuanmen specificity</span>
+        </td>
+        <td>
+          <img src="img/ex2-high-r2.png" alt="High Porosity Round 2" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Edge improved but still<br/>risked displacing everyday users</span>
+        </td>
+        <td>
+          <img src="img/ex2-high-r3.png" alt="High Porosity Round 3" loading="lazy" onclick="openLightbox(this.src)"><br/>
+          <span style="font-size:0.7rem;color:var(--text2);">Lived-in but organized —<br/>elderly, vendors, cyclists included</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <strong>Core Logic of the 3-Round Loop:</strong> Progressive refinement ≠ infinite generation. Each round <em>adds a constraint</em>, not just aesthetic variation. Round 1 = basic strategy → Round 2 = strict heritage preservation (wall line, tree canopy, entrance, walking corridor) → Round 3 = inclusive everyday user adaptation (elderly, tourists, vendors, cyclists, e-bikes, maintenance, emergency). <strong>Do not clean into an empty plaza. Keep it lived-in, but better organized.</strong>
+  </div>
+
+  <!-- Stress-Test Results -->
+  <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Phase 3 — Stress-Test the Proposal</h3>
+  <div class="compare">
+    <div>
+      <h4>🔴 Surprise Finding: Reference-Fidelity Reversed Expectations</h4>
+      <p style="color:var(--text2);font-size:0.9rem;">
+        <strong>High Porosity</strong> (softest intervention: rope + stools) — <strong style="color:var(--green);">BEST site fidelity: 5/5 preserved.</strong> Facade, trees, entrance, walkway, and human scale all fully retained.<br/><br/>
+        <strong>Medium Porosity</strong> (design compromise: intermittent ledges) — <strong style="color:var(--accent);">WORST site fidelity: 2/5.</strong> Wall continuity, tree positions, and human scale all significantly drifted from the original survey.<br/><br/>
+        <strong>Low Porosity</strong> (hard control: bollards) — <strong>Moderate fidelity.</strong> Effectively excludes vehicles but creates lateral congestion displacement. 8 excluded user groups identified — each with specific risk and design revision.
+      </p>
+    </div>
+    <div>
+      <h4>🟣 Cross-Tool Triangulation: ChatGPT vs. DeepSeek</h4>
+      <p style="color:var(--text2);font-size:0.9rem;">
+        <strong>Consensus (Reinforced):</strong> The edge must remain "reversible" and "non-blocking" to the historic wall. Physical intervention alone is insufficient — without management = systemic failure.<br/><br/>
+        <strong>Divergence (Critical Blind Spots Exposed):</strong><br/>
+        · ChatGPT failure mode → <em>Systemic Risk:</em> lack of management mechanisms, spillover effects.<br/>
+        · DeepSeek failure mode → <em>Cognitive &amp; Evidentiary Bias:</em> over-generalizing strategies, questioning vendor assumption.<br/><br/>
+        <strong>Each model reveals what the other misses.</strong> Single-model use would leave critical blind spots undetected.
+      </p>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <strong>Architectural Synthesis — HYBRIDIZE, don't choose:</strong> Reject pure voluntarism (Strategy 3 needs a maintenance plan, not just paint and rope). Refine spatial boundaries (restrict Low Porosity bollards strictly to the 20–30m gateway zone). Field-check evidence (verify vendor distribution before implementing Medium Porosity platforms). <strong>Final hybrid:</strong> Low at gateways + Medium at shaded zones + High at wall stretches. Each porosity level applies to a specific spatial condition. The synthesis IS the design argument.
+  </div>
+</section>
+
+<!-- ═══════════ FFC ═══════════ -->
+<section id="ffc">
+  <h2 class="section-title">FFC — The Anti-Grinder Workflow</h2>
+  <p class="section-sub">Fork / Filter / Commit — Generate alternatives, evaluate them explicitly, then commit.</p>
+
+  <div class="mermaid-wrap">
+    <div class="mermaid">
+flowchart LR
+    F1["FORK
+    Produce CONTROLLED comparable alternatives.
+    ----------------------------
+    Urban Strategy continuum
+    Program Hypothesis options
+    Architectural Attitude spectrum
+    ----------------------------
+    NOT infinite options.
+    COMPARABLE options.
+    Each answers: what problem?
+    what evidence? what new conflict?"]
+    F2["FILTER
+    Apply EXPLICIT criteria.
+    ----------------------------
+    Preserve wall datum?
+    Protect tree canopy?
+    Maintain walking route?
+    Accommodate everyday users?
+    Reversible and small-scale?
+    ----------------------------
+    Score every alternative
+    against the SAME criteria.
+    Record: preserves / changes / risks."]
+    F3["COMMIT
+    Select / Reject / Hybridize.
+    ----------------------------
+    Strong direction carries
+    the MEMORY of rejected
+    alternatives.
+    ----------------------------
+    Final boards must show:
+    what was TESTED,
+    what was REJECTED,
+    and WHY."]
+    F1 --> F2 --> F3
+    classDef fork fill:#ff6d00,stroke:#e65100,color:#fff
+    classDef filter fill:#ffab00,stroke:#ff8f00,color:#333
+    classDef commit fill:#00c853,stroke:#00a844,color:#fff
+    class F1 fork
+    class F2 filter
+    class F3 commit
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-top:2rem;">
+    <div class="card"><span class="tag tag-red">Fork</span><h3>Urban Strategy Continuum</h3><p>Passage · Courtyard · Edge · Thickening · Hybrid A+B. Program hypotheses: community library, craft-learning pavilion, micro museum &amp; archive, civic learning + craft archive. Architectural attitudes: low and porous, fragmented courtyards, compact vertical, porous passage-courtyard.</p></div>
+    <div class="card"><span class="tag tag-gold">Filter</span><h3>Explicit Criteria Matrix</h3><p>Wall datum preserved? Tree canopy protected? Walking route maintained? Everyday users accommodated? Intervention reversible? Score every alternative identically. Record what it preserves, what it changes, and what could go wrong.</p></div>
+    <div class="card"><span class="tag tag-green">Commit</span><h3>Memory of Rejection as Strength</h3><p>A strong final direction carries the memory of the alternatives you rejected. The board must prove that the chosen direction is stronger <em>because</em> the rejected ones were tested. Rejection is not failure — it is evidence of judgment.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════ CRITICAL THINKING DIAGRAMS ═══════════ -->
+<section id="diagrams">
+  <h2 class="section-title">Critical Thinking Diagrams</h2>
+  <p class="section-sub">Multi-format visualization of the complete design decision workflow</p>
+
+  <!-- Ⅰ. Design Decision Evolution -->
+  <h3 style="margin:2rem 0 1rem;">Ⅰ. Design Decision Evolution</h3>
+  <div class="mermaid-wrap">
+    <div class="mermaid">
+stateDiagram-v2
+    [*] --> RawObservation
+    RawObservation: Naked-eye reading - No AI
+    RawObservation --> AIAugmented: 4-model AI analysis
+    AIAugmented: Cross-model comparison
+    AIAugmented: 4-dimension deep analysis
+    AIAugmented --> AdversarialCheck: Stress-test findings
+    AdversarialCheck: Resistance scoring 1-5
+    AdversarialCheck: Error classification
+    AdversarialCheck --> VerifiedInsight: Errors identified
+    AdversarialCheck --> HallucinationCaught: Fabrication found
+    HallucinationCaught --> VerifiedInsight: Discard false claims
+    VerifiedInsight: Synthesize what is real
+    VerifiedInsight --> PromptFormation: Ground the prompt
+    PromptFormation: VLM confirms edge conflict
+    PromptFormation: 5 constraints encoded
+    PromptFormation --> ForkPhase: Enter FFC
+    ForkPhase: 3 comparable alternatives
+    ForkPhase: Low Med High Porosity
+    ForkPhase --> FilterPhase: 3 rounds per level
+    FilterPhase: Heritage fidelity check
+    FilterPhase: Excluded user audit
+    FilterPhase: Reference-fidelity trap
+    FilterPhase: Cross-tool triangulation
+    FilterPhase --> CommitPhase: Best elements found
+    CommitPhase: Reject pure voluntarism
+    CommitPhase: Refine spatial boundaries
+    CommitPhase: Hybridize across strategies
+    CommitPhase --> FinalBoard: Synthesis complete
+    FinalBoard: Build pipeline as argument
+    FinalBoard: The board IS the argument
+    FinalBoard --> [*]
+    </div>
+  </div>
+
+  <!-- Ⅱ. Critical Decision Map — Single deep thread with real content -->
+  <h3 style="margin:2rem 0 1rem;">Ⅱ. Critical Decision Map — One Path from Question to Argument</h3>
+  <div class="flow-root">
+
+    <!-- ====== STEP 1: START ====== -->
+    <div class="flow-row flow-row-question">
+      <div class="flow-label">01</div>
+      <div class="flow-block flow-block-question">
+        <div class="flow-block-title">CORE DESIGN QUESTION</div>
+        <div class="flow-block-desc">
+          The site is Beilin / Shuyuanmen, Xi an — the historic city wall area.<br/>
+          <strong>What spatial conflict do we respond to?</strong> Heritage boundary vs. everyday street use.
+        </div>
+        <div class="flow-think">I started by looking at the satellite image with my own eyes — no AI, no tools. I could identify the city wall, the moat, the Bell Tower, the Drum Tower, narrow inner lanes, and scattered residential blocks. Roads classify by importance. The wall separates the old town from the outer zone. Residential buildings grow without unified planning. But I knew I was missing something — my naked eye could only see the obvious.</div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 2: EX1 P1 ====== -->
+    <div class="flow-row">
+      <div class="flow-label">02</div>
+      <div class="flow-block flow-block-action">
+        <div class="flow-block-title">EXERCISE 1 · PHASE 1 — What AI Saw That I Missed</div>
+        <div class="flow-block-desc">
+          I sent the same satellite image to four models: <strong>Gemini 3.5 Flash, ChatGPT 5.5, Kimi K2.6, and Doubao</strong>.<br/>
+          The prompt asked each to describe morphological structure, spatial hierarchy, and conflicts.<br/><br/>
+          <strong>Gemini</strong> identified three distinct urban textures: fine-grained traditional courtyards, coarse-grained monumental institutions, and linear infrastructure corridors. It caught the "mass-over-void" compression in residential areas vs. the "void-over-mass" inversion of modern infrastructure.<br/><br/>
+          <strong>ChatGPT</strong> identified a formal heritage compound (axial, courtyards), dense residential fabric (irregular, small-scale), and linear infrastructure corridor (wall, moat, major roads). It flagged redevelopment speculation — but labeled this as unverified without ground-truth.<br/><br/>
+          <strong>Kimi</strong> analyzed the image confidently — and described the Forbidden City in Beijing. <em>The site is in Xi an.</em> Kimi fabricated the Tongzi River, Nanluoguxiang, Shichahai, and the Meridian Axis. Every conclusion was built on a geographic error.<br/><br/>
+          <strong>Doubao</strong> described a "historic monumental core" vs. "informal urban fabric" but invented an elevated pedestrian promenade not present in the imagery.
+        </div>
+        <div class="flow-think">AI revealed what I missed — the three-texture morphology, the figure-ground logic, the fire safety risk in narrow alleys, the heat island implications of dense roof clusters. But Kimi proved something critical: an AI error is not a small mistake. Geographic misidentification invalidates EVERY design conclusion drawn from that analysis. From this moment on, I understood: <strong>AI output must be verified against ground truth, never trusted directly.</strong></div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 3: EX1 P2 ====== -->
+    <div class="flow-row">
+      <div class="flow-label">03</div>
+      <div class="flow-block flow-block-critical">
+        <div class="flow-block-title">EXERCISE 1 · PHASE 2 — Adversarial Testing: Making the Models Fight</div>
+        <div class="flow-block-desc">
+          I took every claim from Phase 1 and subjected it to stress-testing across four dimensions:<br/>
+          <strong>Fire Safety</strong> → narrow lanes below 4m block emergency vehicles. <em>Verified:</em> Sanxuejie renewal project confirms 4 dead-end roads being opened, 132 new fire facilities installed.<br/>
+          <strong>Structural Aging</strong> → irregular roofs suggest ad-hoc modifications. <em>Verified:</em> 104 dangerous housing sites (89,000 m²) are planned for reinforcement.<br/>
+          <strong>Heritage Conflict</strong> → modern development presses against the historic wall buffer. <em>Verified:</em> A bright white/blue modern roof sits directly adjacent to the City Wall promenade.<br/>
+          <strong>Environmental Risk</strong> → near-total absence of green space in residential blocks. <em>Plausible</em> but lacks site-specific meteorological measurement.<br/><br/>
+          Then I ran <strong>Technique A: Deliberate Misidentification</strong> — told Gemini the site was in Nanjing. It complied. Told ChatGPT fire risk was exaggerated — it pushed back with nuance: "Perimeter access is not internal block access. The risk is spatially uneven, not absolute."<br/><br/>
+          <strong>Technique B: Cross-Model Confrontation</strong> — I took ChatGPT's conclusions and challenged Kimi with them. Kimi could resist cross-model challenges — but could not defend its own geographic location. Doubao, by contrast, revised its entire framework to match whatever I said: Nanjing, no informal construction, no boundary ambiguity. It always agreed.
+        </div>
+        <div class="flow-think">Doubao scored 1/5 on resistance — it was an echo chamber. This was the most useful failure of the entire exercise. If a model never says NO, its YES is worthless. A compliant model is more dangerous than a wrong one, because the designer is never alerted. ChatGPT scored 4/5 — it analyzed independently, self-corrected when challenged, and refused absolutism. <strong>Adversarial testing IS the critical thinking mechanism. It exposes model weakness, not model strength.</strong></div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 4: EX1 P3 ====== -->
+    <div class="flow-row">
+      <div class="flow-label">04</div>
+      <div class="flow-block flow-block-output">
+        <div class="flow-block-title">EXERCISE 1 · PHASE 3 — The Turning Point: Error Taxonomy</div>
+        <div class="flow-block-desc">
+          I built a 6-type error taxonomy from everything that went wrong:<br/><br/>
+          <strong>1. Fabrication</strong> — Kimi invented Forbidden City landmarks. Gemini (adversarial) invented Nanjing locations. Doubao invented an elevated promenade.<br/>
+          <strong>2. Misattribution</strong> — Kimi correctly identified a walled compound and moat, but placed them in Beijing. Correct form, wrong city.<br/>
+          <strong>3. Overgeneralization</strong> — Gemini labeled dense residential blocks as "informal" and "haphazard" without recognizing Xi an's historically layered vernacular fabric. Doubao called everything "chaotic."<br/>
+          <strong>4. Cultural Projection</strong> — Gemini imposed Western heritage frameworks: "view-corridor protection," "heritage buffers" — European preservation paradigms that do not align with Chinese "micro-renovation" (wei-gai-zao) practice.<br/>
+          <strong>5. Quantitative Fabrication</strong> — Kimi invented FAR numbers, unit counts of 450, street widths, and wind speed reductions of "60-80%" — all from a single satellite image.<br/>
+          <strong>6. Excessive Compliance (Echo Chamber)</strong> — Doubao abandoned all prior analysis to unconditionally match any premise I gave it.
+        </div>
+        <div class="flow-think">This taxonomy became my filter for Exercise 2. I excluded Kimi from VLM tasks (fatal fabrication). I excluded ERNIE Bot (hallucination). I kept ChatGPT (highest resistance) and DeepSeek (spatial specificity). Every error type I classified translated into a <em>selection criterion</em>: which models are safe to use? Which tasks are safe to delegate? <strong>The greatest value of AI was not providing answers — it was forcing me to think more deeply through its errors.</strong></div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 5: TRANSITION ====== -->
+    <div class="flow-row flow-row-transition">
+      <div class="flow-block flow-block-transition">
+        <div class="flow-block-title">CRITICAL TRANSITION — From Satellite Reading to Street Action</div>
+        <div class="flow-block-desc">
+          Exercise 1 showed large-scale tensions on a satellite map. But to propose a design, I needed to go to the street.<br/><br/>
+          <strong>The street survey data changed everything.</strong> The conflict is not distributed across the entire district — it is concentrated along a narrow edge: the street edge where historic walls, entrances, tree shade, vendors, parked micro-mobility vehicles, tourists, residents, elderly people resting, and staying spaces <strong>all compete for limited room</strong>.<br/><br/>
+          <strong>The spatial tension I chose to act on:</strong> CONFLICT BETWEEN HERITAGE BOUNDARY AND EVERYDAY STREET USE.
+        </div>
+        <div class="flow-think">The satellite showed the problem. The street showed the site. I realized the design site is not a district, not a zone — it is an EDGE. A thin line where heritage meets everyday life. Narrowing the focus made the design task more concrete and more accountable.</div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 6: EX2 P1-2 ====== -->
+    <div class="flow-row">
+      <div class="flow-label">05</div>
+      <div class="flow-block flow-block-decision">
+        <div class="flow-block-title">EXERCISE 2 · PHASE 1-2 — Prompt as Design Stance + Controlled Generation</div>
+        <div class="flow-block-desc">
+          Two VLM models read the street survey: <strong>Qwen3-VL-Flash</strong> identified the SCALE conflict — "monumental historic wall vs. intimate everyday human activities in its shadow." <strong>Gemini 3.5 Flash</strong> identified the FUNCTION conflict — "high-density transit/tourism node vs. historic shaded public space for resting and cultural appreciation." I synthesized both framings into one prompt.<br/><br/>
+          <strong>The 5 constraints I wrote ARE my design stance:</strong><br/>
+          ① Do not block the historic wall datum or entrance visibility → <em>visibility is non-negotiable</em><br/>
+          ② Do not block existing trees or the main pedestrian route → <em>ecological and movement continuity</em><br/>
+          ③ Keep the intervention reversible and small-scale → <em>I refuse to permanently alter heritage</em><br/>
+          ④ Work through paving, seating, vendor organization, edge porosity, shade, signage, threshold repair → <em>the intervention vocabulary</em><br/>
+          ⑤ Do not invent dimensions, costs, regulations, or historical facts not visible in the survey → <em>epistemic honesty — learned from Ex1</em><br/><br/>
+          Then I ran <strong>DeepSeek + ChatGPT</strong> on the same prompt. Their outputs converged on Low Porosity (bollards at gateways) but diverged on Medium and High. DeepSeek proposed fixed stone ledges; ChatGPT proposed movable paving bands. DeepSeek proposed tensioned ropes with tethered stools; ChatGPT proposed signage and threshold repair. <strong>The divergence IS the insight</strong> — each model reveals a different blind spot.<br/><br/>
+          For image generation with <strong>Gemini 3.5 Flash (Seed=1998 fixed)</strong>, I designed a 3-round controlled loop — not infinite variation:<br/>
+          <strong>Round 1 (Temp 0.24):</strong> Basic strategy → FAILED: output was too generic, lost Beilin/Shuyuanmen specificity.<br/>
+          <strong>Round 2 (Temp 0.36):</strong> Heritage fidelity enforced — keep wall line, tree canopy, entrance, walking corridor → IMPROVED but still risked displacing everyday users.<br/>
+          <strong>Round 3 (Temp 0.80):</strong> Inclusive of everyday users — elderly resting under trees, tourists passing, vendors, cyclists, e-bikes, maintenance, emergency access → Rule: <em>Do not clean into an empty plaza. Keep it lived-in, but better organized.</em>
+        </div>
+        <div class="flow-think">I learned that prompt constraints are not technical parameters — they are ethical positions. "Reversible" means I value heritage over permanence. "Do not block the wall" means I value visual continuity over functional efficiency. Every constraint encodes a value. And the 3-round loop proved that progressive refinement is not about aesthetics — each round adds a <em>constraint</em>, not a style variation. <strong>9 controlled comparable outputs are stronger than 30 random images.</strong></div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 7: EX2 P3 ====== -->
+    <div class="flow-row">
+      <div class="flow-label">06</div>
+      <div class="flow-block flow-block-critical">
+        <div class="flow-block-title">EXERCISE 2 · PHASE 3 — Stress-Testing: The Result That Reversed My Expectations</div>
+        <div class="flow-block-desc">
+          <strong>Technique C — Excluded User (Low Porosity):</strong> I asked Gemini: "Whose use does this proposal ignore?" It identified 8 groups — residents, elderly resting in shade, tourists, vendors, cyclists, e-bike users, cleaners/maintenance workers, and emergency access — each with specific risk and design revision. Bollard design must address operational displacement, not just physical barriers.<br/><br/>
+          <strong>Technique E — Reference-Fidelity Trap (Medium + High Porosity):</strong> I checked each proposal against the original survey on 5 criteria.<br/>
+          <strong>Medium Porosity (intermittent stone ledges):</strong> Wall line — DRIFTED. Tree positions — DRIFTED. Entrance visibility — OK. Walking route — OK. Human scale — DRIFTED. <strong>Verdict: 2/5 preserved.</strong><br/>
+          <strong>High Porosity (steel posts + tensioned rope + tethered stools):</strong> Facade — FULLY RETAINED. Trees — ORIGINAL POSITIONS. Entrance — CORE FOCUS. Walkway — SPACIOUS PASSAGE. Human scale — ORIGINAL FEEL. <strong>Verdict: 5/5 preserved.</strong><br/><br/>
+          <strong>Cross-Tool Triangulation (ChatGPT vs. DeepSeek):</strong> Consensus — the edge must be reversible and non-blocking; physical intervention alone is insufficient; without management = systemic failure. Divergence — ChatGPT focused on systemic risk (management gaps, spillover effects); DeepSeek focused on cognitive and evidential bias (over-generalizing strategies, questioning vendor assumptions). Each model has a different blind spot pattern.
+        </div>
+        <div class="flow-think"><strong>This reversed my expectations.</strong> High Porosity — the softest intervention, the one that used almost nothing but rope and stools — had the BEST site fidelity. Medium Porosity — the design compromise — had the WORST. The lesson: minimal intervention preserves more than compromise does. Design is not about physical form alone. <strong>Management IS design.</strong> If I had used only one model for stress-testing, I would have missed half the blind spots.</div>
+      </div>
+      <div class="flow-arrow-main">▼</div>
+    </div>
+
+    <!-- ====== STEP 8: SYNTHESIS + FFC + FINAL ====== -->
+    <div class="flow-row">
+      <div class="flow-label">07</div>
+      <div class="flow-block flow-block-output">
+        <div class="flow-block-title">SYNTHESIS + FFC + REFLECTION — The Argument Becomes the Board</div>
+        <div class="flow-block-desc">
+          <strong>Architectural Synthesis:</strong> I did not choose ONE strategy. I HYBRIDIZED.<br/>
+          — <strong>Low Porosity (bollards)</strong> at gateways → where micro-mobility parking must be controlled.<br/>
+          — <strong>Medium Porosity (ledges + vendor zones)</strong> at shaded mid-zones → where social life needs organization, not removal.<br/>
+          — <strong>High Porosity (rope + stools)</strong> at wall stretches → where visual transparency is paramount.<br/>
+          Each porosity level applies to a SPECIFIC spatial condition, not the entire street. I also adopted ChatGPT's critique (High Porosity needs a light-touch maintenance plan) and DeepSeek's spatial boundary warning (restrict Low Porosity bollards to the 20-30m gateway zone only).<br/><br/>
+          <strong>FFC Anti-Grinder Workflow applied:</strong> FORK → 3 porosity alternatives, each comparable and controlled. FILTER → explicit criteria (wall datum, tree canopy, walking route, users, reversibility). COMMIT → select, reject, hybridize — carrying the memory of rejected alternatives.<br/><br/>
+          <strong>Reflection — The Double Question:</strong><br/>
+          ① The exact moment AI IMPROVED the project: <em>When cross-model divergence between ChatGPT and DeepSeek revealed complementary blind spots — systemic risk vs. cognitive bias — that no single model could expose alone.</em><br/>
+          ② The exact moment IGNORING AI made it better: <em>When the reference-fidelity trap showed that Medium Porosity — which both AI models had endorsed as the "balanced" solution — had actually drifted furthest from the site. My own eyes on the survey comparison overruled the AI consensus.</em><br/><br/>
+          <strong>Kill 50% Pipeline:</strong> If I removed half the pipeline, what remains indispensable is the CROSS-MODEL TRIANGULATION step — because it catches errors that single-model output never flags. What must be recovered manually is SITE FIDELITY CHECK — because no AI can verify whether a generated image actually preserves the real wall, the real trees, the real entrance.
+        </div>
+        <div class="flow-think">My final board does not showcase AI tools. It showcases the MOMENTS OF JUDGMENT — where I chose one direction and rejected another. The rejected alternatives are not failures: they are the proof that I tested, compared, and decided. A weak group shows outputs. A strong group shows how process became project. <strong>The board IS the argument.</strong></div>
+      </div>
+      <div class="flow-arrow-main" style="opacity:1;">▼</div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="flow-row flow-row-final">
+      <div class="flow-block flow-block-final">
+        <div class="flow-block-title">A1 FINAL BOARD — What was TESTED, what was REJECTED, and WHY</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Ⅲ. Human-AI Interaction Protocol -->
+  <h3 style="margin:2rem 0 1rem;">Ⅲ. Human-AI Interaction Protocol</h3>
+  <div class="mermaid-wrap">
+    <div class="mermaid">
+sequenceDiagram
+    autonumber
+    actor H as Designer
+    participant G as Ground Truth
+    participant A as AI Models
+    participant V as Verification
+    rect rgb(30,30,40)
+        Note over H,V: EXERCISE 1 - Adversarial Reading
+        H->>H: Naked-eye site reading - No AI
+        H->>A: Same prompt to 4 models
+        A-->>H: 4 independent descriptions
+        H->>H: Cross-model comparison
+        H->>A: Deep analysis - 4 dimensions
+        A-->>H: Claims with evidence links
+        H->>V: Verify against Baidu Maps and News
+        V-->>H: Verified / Plausible / Hallucinated
+        H->>A: Adversarial test - false location
+        A-->>H: Compliance or resistance?
+        H->>H: Resistance Score 1-5
+        H->>H: Build Error Taxonomy - 6 types
+    end
+    rect rgb(30,35,30)
+        Note over H,V: EXERCISE 2 - Controlled Proposal
+        H->>G: Street survey images and Point cloud
+        H->>A: VLM reading - Qwen plus Gemini
+        A-->>H: Spatial tension framings
+        H->>H: Synthesize into design prompt
+        H->>A: Dual reasoning - DeepSeek plus ChatGPT
+        A-->>H: 3 strategies each (Low Med High)
+        H->>H: Compare divergence - blind spots
+        H->>A: Image gen - Gemini 3.5 Flash
+        A-->>H: 9 controlled outputs
+        H->>A: Stress-test - excluded user
+        A-->>H: Fidelity scores and management gaps
+        H->>H: Architectural synthesis - HYBRIDIZE
+    end
+    rect rgb(35,30,30)
+        Note over H,V: FINAL BOARD - Curation
+        H->>H: FFC: Fork to Filter to Commit
+        H->>H: Answer the Double Question
+        H->>H: Pipeline becomes critical drawing
+        H->>G: Deliver A1 Board
+    end
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ ARTISTIC FOOTER ═══════════ -->
+<div class="art-footer" id="artFooter">
+  <span class="ft-line">AI-Enhanced Architecture <span class="ft-dot">·</span> Urban Design</span>
+  <span class="ft-line">Final Board <span class="ft-dot">·</span> June 10 2026</span>
+  <span class="ft-line">Beilin <span class="ft-dot">·</span> Shuyuanmen <span class="ft-dot">·</span> Xi an</span>
+  <span class="ft-line">Daniele Villa <span class="ft-dot">·</span> PhD <span class="ft-dot">·</span> Zhu Shanyao <span class="ft-dot">·</span> PhD <span class="ft-dot">·</span>
+  <span class="ft-line ft-accent">Critical Thinking.</span>
+</div>
+
+<div class="spacer-bottom"></div>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+// ── Mermaid Init ──
+mermaid.initialize({ startOnLoad: true, theme: 'dark', securityLevel: 'loose',
+  themeVariables: {
+    primaryColor: '#ff4444', primaryTextColor: '#fff', primaryBorderColor: '#d50000',
+    lineColor: '#555', secondaryColor: '#1a1a1a', tertiaryColor: '#242424',
+    fontSize: '14px', fontFamily: '"Segoe UI", system-ui, sans-serif'
+  }
+});
+
+// ── Lightbox ──
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ── Footer scroll-based fade ──
+(function(){
+  var ft = document.getElementById('artFooter');
+  if (!ft) return;
+  function tick(){
+    var scrollBottom = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+    var proximity = Math.min(1, scrollBottom / 400);
+    ft.style.opacity = (0.15 + proximity * 0.85).toFixed(2);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
