@@ -776,6 +776,17 @@ body.pptx-mode .pptx-counter { display:block; }
   background: rgba(30,200,150,0.12); color: var(--teal);
   text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem;
 }
+
+/* ── AI Model Brand Icon (inline) ── */
+.ai-model-icon {
+  display: inline-block;
+  height: 1.25em;
+  width: auto;
+  vertical-align: -0.22em;
+  margin-right: 0.25em;
+  border-radius: 3px;
+}
+
 </style>
 </head>
 <body>
@@ -885,10 +896,10 @@ body.pptx-mode .pptx-counter { display:block; }
   <div class="mermaid-wrap">
     <div class="mermaid">
 flowchart LR
-    G["Gemini 3.5 Flash<br/>★★★☆☆ &nbsp;3/5<br/>Resists on reasoned judgment<br/>Over-compliant on context"]
-    C["ChatGPT 5.5<br/>★★★★☆ &nbsp;4/5<br/>Independent analysis<br/>Self-corrects when challenged"]
-    K["Kimi K2.6<br/>★☆☆☆☆ &nbsp;1/5<br/>Fatal geo misidentification<br/>Xi an became Beijing"]
-    D["Doubao<br/>★☆☆☆☆ &nbsp;1/5<br/>Echo chamber effect<br/>Zero independent stance"]
+    G["<b>Gemini 3.5 Flash</b><br/>★★★☆☆ &nbsp;3/5<br/>Resists on reasoned judgment<br/>Over-compliant on context"]
+    C["<b>ChatGPT 5.5</b><br/>★★★★☆ &nbsp;4/5<br/>Independent analysis<br/>Self-corrects when challenged"]
+    K["<b>Kimi K2.6</b><br/>★☆☆☆☆ &nbsp;1/5<br/>Fatal geo misidentification<br/>Xi an became Beijing"]
+    D["<b>Doubao</b><br/>★☆☆☆☆ &nbsp;1/5<br/>Echo chamber effect<br/>Zero independent stance"]
     G --> C --> K --> D
     classDef good fill:#00c853,stroke:#00a844,color:#fff
     classDef warn fill:#ffab00,stroke:#ff8f00,color:#333
@@ -917,9 +928,9 @@ flowchart LR
       <h3>Fabrication</h3>
       <div class="err-def">Inventing features, names, or facts<br/>not visible or verifiable in the source.</div>
       <div class="err-case">
-        <strong>Kimi (Phase 1):</strong> Analyzed the Xi'an satellite image and described the <em>Forbidden City</em>, <em>Tongzi River</em>, <em>Nanluoguxiang</em>, <em>Shichahai</em>, <em>Drum Tower</em>, and <em>Bell Tower</em> — all Beijing landmarks. <strong>None of these exist at the site.</strong><br/><br/>
-        <strong>Gemini (Phase 2, adversarial):</strong> When told the site was in Nanjing, invented <em>Dongshuiguan</em>, <em>Tongji Gate</em>, and <em>Outer Qinhuai River</em> — locations with no visual basis.<br/><br/>
-        <strong>Doubao (Phase 1):</strong> Invented an <em>"elevated pedestrian promenade"</em> and <em>directional zoning</em> not present in the imagery.
+        <strong><img src="img/Kimi图标.png" class="ai-model-icon" alt="Kimi">Kimi (Phase 1):</strong> Analyzed the Xi'an satellite image and described the <em>Forbidden City</em>, <em>Tongzi River</em>, <em>Nanluoguxiang</em>, <em>Shichahai</em>, <em>Drum Tower</em>, and <em>Bell Tower</em> — all Beijing landmarks. <strong>None of these exist at the site.</strong><br/><br/>
+        <strong><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini">Gemini (Phase 2, adversarial):</strong> When told the site was in Nanjing, invented <em>Dongshuiguan</em>, <em>Tongji Gate</em>, and <em>Outer Qinhuai River</em> — locations with no visual basis.<br/><br/>
+        <strong><img src="img/豆包图标.png" class="ai-model-icon" alt="Doubao">Doubao (Phase 1):</strong> Invented an <em>"elevated pedestrian promenade"</em> and <em>directional zoning</em> not present in the imagery.
       </div>
     </div>
 
@@ -930,8 +941,8 @@ flowchart LR
       <h3>Misattribution</h3>
       <div class="err-def">Correct identification of form,<br/>wrong location, period, or cultural context.</div>
       <div class="err-case">
-        <strong>Kimi (Phase 1):</strong> Correctly identified a <em>monumental walled compound</em> and <em>water body/moat</em> — but misattributed them as Beijing's Forbidden City and Tongzi River. The actual site: <strong>Stele Forest Museum (Beilin)</strong> and <strong>Xi'an City Wall moat</strong>.<br/><br/>
-        <strong>Kimi (Phase 2):</strong> Correctly identified Xi'an — but misattributed the district as <em>Muslim Quarter / Bell Tower</em> area. The actual site: <strong>Wenchang Gate / Shuyuanmen</strong>.<br/><br/>
+        <strong><img src="img/Kimi图标.png" class="ai-model-icon" alt="Kimi">Kimi (Phase 1):</strong> Correctly identified a <em>monumental walled compound</em> and <em>water body/moat</em> — but misattributed them as Beijing's Forbidden City and Tongzi River. The actual site: <strong>Stele Forest Museum (Beilin)</strong> and <strong>Xi'an City Wall moat</strong>.<br/><br/>
+        <strong><img src="img/Kimi图标.png" class="ai-model-icon" alt="Kimi">Kimi (Phase 2):</strong> Correctly identified Xi'an — but misattributed the district as <em>Muslim Quarter / Bell Tower</em> area. The actual site: <strong>Wenchang Gate / Shuyuanmen</strong>.<br/><br/>
         <strong>Why this matters:</strong> Correct form recognition creates <em>false confidence</em>. The analysis reads plausibly — but every design conclusion drawn from the wrong cultural context is invalid.
       </div>
     </div>
@@ -943,9 +954,9 @@ flowchart LR
       <h3>Excessive Compliance</h3>
       <div class="err-def">The Echo Chamber Effect — abandoning<br/>prior analysis to unconditionally align<br/>with the user's premise.</div>
       <div class="err-case">
-        <strong>Doubao (Phase 2, adversarial):</strong> When the user claimed the site was in Nanjing, denied the existence of informal construction, or asserted there was no public/private boundary ambiguity — Doubao <em>immediately revised its entire analytical framework</em> to match every premise. Resistance Score: <strong>1/5</strong>.<br/><br/>
-        <strong>Gemini (Phase 2):</strong> Initially complied with the Nanjing misidentification before partial recovery.<br/><br/>
-        <strong>Kimi (Phase 2):</strong> Apologized and rewrote its cultural context analysis to fit the user's false Beijing narrative.<br/><br/>
+        <strong><img src="img/豆包图标.png" class="ai-model-icon" alt="Doubao">Doubao (Phase 2, adversarial):</strong> When the user claimed the site was in Nanjing, denied the existence of informal construction, or asserted there was no public/private boundary ambiguity — Doubao <em>immediately revised its entire analytical framework</em> to match every premise. Resistance Score: <strong>1/5</strong>.<br/><br/>
+        <strong><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini">Gemini (Phase 2):</strong> Initially complied with the Nanjing misidentification before partial recovery.<br/><br/>
+        <strong><img src="img/Kimi图标.png" class="ai-model-icon" alt="Kimi">Kimi (Phase 2):</strong> Apologized and rewrote its cultural context analysis to fit the user's false Beijing narrative.<br/><br/>
         <strong>Why this is the most dangerous:</strong> Unlike Fabrication (visible error) or Misattribution (verifiable error), compliance produces <em>plausible-sounding agreement</em>. The designer is never alerted. The error is invisible.
       </div>
     </div>
@@ -1002,12 +1013,12 @@ flowchart LR
   <h3 style="margin:2rem 0 1rem;font-size:1.4rem;">VLM Ground Reading — Two Models, Two Framings</h3>
   <div class="compare">
     <div>
-      <h4>Qwen3-VL-Flash (Alibaba)</h4>
+      <h4><img src="img/Qwen图标.png" class="ai-model-icon" alt="Qwen"> Qwen3-VL-Flash (Alibaba)</h4>
       <p style="color:var(--text2);font-size:1rem;">"The primary tension is the friction between the <strong>monumental scale</strong> of the historic city wall and the <strong>intimate, everyday human activities</strong> — pedestrian movement, social gathering, and commercial life — that occur in its immediate shadow, often competing for the same limited ground space."</p>
       <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--text2);">Framing: <strong>SCALE contrast</strong> — monumental vs. intimate</p>
     </div>
     <div>
-      <h4>Gemini 3.5 Flash (Google)</h4>
+      <h4><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini"> Gemini 3.5 Flash (Google)</h4>
       <p style="color:var(--text2);font-size:1rem;">"The primary spatial tension lies between the site's role as a <strong>high-density transit and tourism node</strong> — crowded with parked micro-mobility vehicles, street vendors, and moving pedestrians — and its function as a <strong>historic, shaded public space</strong> meant for resting and cultural appreciation."</p>
       <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--text2);">Framing: <strong>FUNCTION conflict</strong> — transit vs. rest</p>
     </div>
@@ -1020,7 +1031,7 @@ flowchart LR
   <!-- AI Generated Images Table -->
   <h3 style="margin:2rem 0 1rem;font-size:1.4rem;">3-Round Controlled Image Generation — Low · Medium · High Porosity</h3>
   <p style="color:var(--text2);font-size:0.95rem;margin-bottom:0.3rem;">
-    <span class="gen-badge">Gemini 3.5 Flash</span> &nbsp; Seed = 1998 (fixed) &nbsp;·&nbsp; Reference Weight = 1 
+    <span class="gen-badge"><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini"> Gemini 3.5 Flash</span> &nbsp; Seed = 1998 (fixed) &nbsp;·&nbsp; Reference Weight = 1 
   <p style="color:var(--text2);font-size:0.9rem;margin-bottom:1.5rem;">
     Temperature: Round 1 = 0.24 → Round 2 = 0.36 → Round 3 = 0.80 &nbsp;|&nbsp; Fixed seed ensures COMPARABILITY — differences come from prompt refinement, not randomness.
   </p>
@@ -1154,9 +1165,9 @@ flowchart LR
       <span style="display:inline-block; font-size:0.68rem; padding:3px 14px; border-radius:20px; background:rgba(68,138,255,0.15); color:var(--blue); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.8rem;">Reinforced Consensus</span>
       <h4 style="font-size:1.4rem; font-weight:800; margin-bottom:1rem;">Cross-Tool Triangulation</h4>
       <div style="display:flex; gap:1rem; align-items:center; margin-bottom:1.2rem;">
-        <span style="font-size:0.78rem; padding:4px 12px; border-radius:4px; background:rgba(68,138,255,0.1); color:var(--blue); font-weight:700; white-space:nowrap;">ChatGPT</span>
+        <span style="font-size:0.78rem; padding:4px 12px; border-radius:4px; background:rgba(68,138,255,0.1); color:var(--blue); font-weight:700; white-space:nowrap;"><img src="img/ChatGPT图标.png" class="ai-model-icon" alt="ChatGPT"> ChatGPT</span>
         <span style="color:var(--text2); font-size:1.2rem;">⟷</span>
-        <span style="font-size:0.78rem; padding:4px 12px; border-radius:4px; background:rgba(124,77,255,0.1); color:var(--purple); font-weight:700; white-space:nowrap;">DeepSeek</span>
+        <span style="font-size:0.78rem; padding:4px 12px; border-radius:4px; background:rgba(124,77,255,0.1); color:var(--purple); font-weight:700; white-space:nowrap;"><img src="img/DeepSeek图标.png" class="ai-model-icon" alt="DeepSeek"> DeepSeek</span>
       </div>
       <p style="color:var(--text2); font-size:0.95rem; line-height:1.6;">
         <strong style="color:var(--text);">The edge must be reversible and non-blocking</strong> to the historic wall.<br/>
@@ -1170,11 +1181,11 @@ flowchart LR
       <h4 style="font-size:1.4rem; font-weight:800; margin-bottom:1rem;">Complementary Divergence</h4>
       <div style="display:flex; flex-direction:column; gap:1rem;">
         <div style="background:rgba(68,138,255,0.05); border-left:3px solid var(--blue); padding:0.8rem 1rem; border-radius:0 4px 4px 0;">
-          <span style="font-size:0.73rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue);">ChatGPT reveals</span>
+          <span style="font-size:0.73rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue);"><img src="img/ChatGPT图标.png" class="ai-model-icon" alt="ChatGPT"> ChatGPT reveals</span>
           <p style="font-size:0.9rem; color:var(--text2); margin-top:0.2rem;"><strong style="color:var(--text);">Systemic Risk:</strong> lack of management mechanisms, spillover effects, maintenance gaps.</p>
         </div>
         <div style="background:rgba(124,77,255,0.05); border-left:3px solid var(--purple); padding:0.8rem 1rem; border-radius:0 4px 4px 0;">
-          <span style="font-size:0.73rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--purple);">DeepSeek reveals</span>
+          <span style="font-size:0.73rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--purple);"><img src="img/DeepSeek图标.png" class="ai-model-icon" alt="DeepSeek"> DeepSeek reveals</span>
           <p style="font-size:0.9rem; color:var(--text2); margin-top:0.2rem;"><strong style="color:var(--text);">Cognitive &amp; Evidentiary Bias:</strong> over-generalizing strategies, questioning vendor assumptions.</p>
         </div>
       </div>
@@ -1445,10 +1456,10 @@ stateDiagram-v2
         <div class="flow-block-desc">
           I sent the same satellite image to four models: <strong>Gemini 3.5 Flash, ChatGPT 5.5, Kimi K2.6, and Doubao</strong>.<br/>
           The prompt asked each to describe morphological structure, spatial hierarchy, and conflicts.<br/><br/>
-          <strong>Gemini</strong> identified three distinct urban textures: fine-grained traditional courtyards, coarse-grained monumental institutions, and linear infrastructure corridors. It caught the "mass-over-void" compression in residential areas vs. the "void-over-mass" inversion of modern infrastructure.<br/><br/>
-          <strong>ChatGPT</strong> identified a formal heritage compound (axial, courtyards), dense residential fabric (irregular, small-scale), and linear infrastructure corridor (wall, moat, major roads). It flagged redevelopment speculation — but labeled this as unverified without ground-truth.<br/><br/>
-          <strong>Kimi</strong> analyzed the image confidently — and described the Forbidden City in Beijing. <em>The site is in Xi an.</em> Kimi fabricated the Tongzi River, Nanluoguxiang, Shichahai, and the Meridian Axis. Every conclusion was built on a geographic error.<br/><br/>
-          <strong>Doubao</strong> described a "historic monumental core" vs. "informal urban fabric" but invented an elevated pedestrian promenade not present in the imagery.
+          <strong><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini">Gemini</strong> identified three distinct urban textures: fine-grained traditional courtyards, coarse-grained monumental institutions, and linear infrastructure corridors. It caught the "mass-over-void" compression in residential areas vs. the "void-over-mass" inversion of modern infrastructure.<br/><br/>
+          <strong><img src="img/ChatGPT图标.png" class="ai-model-icon" alt="ChatGPT">ChatGPT</strong> identified a formal heritage compound (axial, courtyards), dense residential fabric (irregular, small-scale), and linear infrastructure corridor (wall, moat, major roads). It flagged redevelopment speculation — but labeled this as unverified without ground-truth.<br/><br/>
+          <strong><img src="img/Kimi图标.png" class="ai-model-icon" alt="Kimi">Kimi</strong> analyzed the image confidently — and described the Forbidden City in Beijing. <em>The site is in Xi an.</em> Kimi fabricated the Tongzi River, Nanluoguxiang, Shichahai, and the Meridian Axis. Every conclusion was built on a geographic error.<br/><br/>
+          <strong><img src="img/豆包图标.png" class="ai-model-icon" alt="Doubao">Doubao</strong> described a "historic monumental core" vs. "informal urban fabric" but invented an elevated pedestrian promenade not present in the imagery.
         </div>
         <div class="flow-think">AI revealed what I missed — the three-texture morphology, the figure-ground logic, the fire safety risk in narrow alleys, the heat island implications of dense roof clusters. But Kimi proved something critical: an AI error is not a small mistake. Geographic misidentification invalidates EVERY design conclusion drawn from that analysis. From this moment on, I understood: <strong>AI output must be verified against ground truth, never trusted directly.</strong></div>
       </div>
@@ -1514,15 +1525,15 @@ stateDiagram-v2
       <div class="flow-block flow-block-decision">
         <div class="flow-block-title">EXERCISE 2 · PHASE 1-2 — Prompt as Design Stance + Controlled Generation</div>
         <div class="flow-block-desc">
-          Two VLM models read the street survey: <strong>Qwen3-VL-Flash</strong> identified the SCALE conflict — "monumental historic wall vs. intimate everyday human activities in its shadow." <strong>Gemini 3.5 Flash</strong> identified the FUNCTION conflict — "high-density transit/tourism node vs. historic shaded public space for resting and cultural appreciation." I synthesized both framings into one prompt.<br/><br/>
+          Two VLM models read the street survey: <strong><img src="img/Qwen图标.png" class="ai-model-icon" alt="Qwen">Qwen3-VL-Flash</strong> identified the SCALE conflict — "monumental historic wall vs. intimate everyday human activities in its shadow." <strong><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini">Gemini 3.5 Flash</strong> identified the FUNCTION conflict — "high-density transit/tourism node vs. historic shaded public space for resting and cultural appreciation." I synthesized both framings into one prompt.<br/><br/>
           <strong>The 5 constraints I wrote ARE my design stance:</strong><br/>
           ① Do not block the historic wall datum or entrance visibility → <em>visibility is non-negotiable</em><br/>
           ② Do not block existing trees or the main pedestrian route → <em>ecological and movement continuity</em><br/>
           ③ Keep the intervention reversible and small-scale → <em>I refuse to permanently alter heritage</em><br/>
           ④ Work through paving, seating, vendor organization, edge porosity, shade, signage, threshold repair → <em>the intervention vocabulary</em><br/>
           ⑤ Do not invent dimensions, costs, regulations, or historical facts not visible in the survey → <em>epistemic honesty — learned from Ex1</em><br/><br/>
-          Then I ran <strong>DeepSeek + ChatGPT</strong> on the same prompt. Their outputs converged on Low Porosity (bollards at gateways) but diverged on Medium and High. DeepSeek proposed fixed stone ledges; ChatGPT proposed movable paving bands. DeepSeek proposed tensioned ropes with tethered stools; ChatGPT proposed signage and threshold repair. <strong>The divergence IS the insight</strong> — each model reveals a different blind spot.<br/><br/>
-          For image generation with <strong>Gemini 3.5 Flash (Seed=1998 fixed)</strong>, I designed a 3-round controlled loop — not infinite variation:<br/>
+          Then I ran <strong><img src="img/DeepSeek图标.png" class="ai-model-icon" alt="DeepSeek">DeepSeek + <img src="img/ChatGPT图标.png" class="ai-model-icon" alt="ChatGPT">ChatGPT</strong> on the same prompt. Their outputs converged on Low Porosity (bollards at gateways) but diverged on Medium and High. DeepSeek proposed fixed stone ledges; ChatGPT proposed movable paving bands. DeepSeek proposed tensioned ropes with tethered stools; ChatGPT proposed signage and threshold repair. <strong>The divergence IS the insight</strong> — each model reveals a different blind spot.<br/><br/>
+          For image generation with <strong><img src="img/Gemini图标.png" class="ai-model-icon" alt="Gemini">Gemini 3.5 Flash (Seed=1998 fixed)</strong>, I designed a 3-round controlled loop — not infinite variation:<br/>
           <strong>Round 1 (Temp 0.24):</strong> Basic strategy → FAILED: output was too generic, lost Beilin/Shuyuanmen specificity.<br/>
           <strong>Round 2 (Temp 0.36):</strong> Heritage fidelity enforced — keep wall line, tree canopy, entrance, walking corridor → IMPROVED but still risked displacing everyday users.<br/>
           <strong>Round 3 (Temp 0.80):</strong> Inclusive of everyday users — elderly resting under trees, tourists passing, vendors, cyclists, e-bikes, maintenance, emergency access → Rule: <em>Do not clean into an empty plaza. Keep it lived-in, but better organized.</em>
@@ -1608,6 +1619,15 @@ sequenceDiagram
     </div>
   </div>
 
+</section>
+
+<!-- ═══════════ A1 BOARD TEMPLATE ═══════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <img src="img/AI Board Template.png"
+       alt="A1 Board Template — AI-Enhanced Architecture & Urban Design"
+       style="display:block; width:100%; height:auto;"
+       onclick="openLightbox(this.src)"
+       loading="lazy">
 </section>
 
 <!-- ═══════════ ARTISTIC FOOTER ═══════════ -->
@@ -1799,6 +1819,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
 
   updateUI();
 })();
+
 
 // ── Critical Decision Map — reveal on scroll ──
 (function(){
